@@ -1,5 +1,6 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import theme from 'styles/theme'
 
 import Ribbon from '.'
 
@@ -13,14 +14,14 @@ describe('<Ribbon />', () => {
     renderWithTheme(<Ribbon>Best Seller</Ribbon>)
 
     expect(screen.getByText(/best seller/i)).toHaveStyle({
-      backgroundColor: '#F231A5'
+      backgroundColor: theme.colors.primary
     })
   })
   it('should render with secondary color', () => {
     renderWithTheme(<Ribbon color="secondary">Best Seller</Ribbon>)
 
     expect(screen.getByText(/best seller/i)).toHaveStyle({
-      backgroundColor: '#3CD3C1'
+      backgroundColor: theme.colors.secondary
     })
   })
   it('should render with normal size as default', () => {

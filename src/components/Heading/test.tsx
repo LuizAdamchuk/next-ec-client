@@ -1,5 +1,6 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import theme from 'styles/theme'
 
 import Heading from '.'
 
@@ -22,7 +23,7 @@ describe('<Heading />', () => {
     renderWithTheme(<Heading lineLeft>Won Games</Heading>)
     //todos os h1, h2, etc são heading
     expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyle({
-      'border-left': '0.7rem solid #F231A5'
+      'border-left': `0.7rem solid ${theme.colors.primary}`
     })
   })
   it('should render a colored line at bottom', () => {
@@ -30,7 +31,7 @@ describe('<Heading />', () => {
     //todos os h1, h2, etc são heading
     expect(screen.getByRole('heading', { name: /won games/i })).toHaveStyleRule(
       'border-bottom',
-      '0.5rem solid #F231A5',
+      `0.5rem solid ${theme.colors.primary}`,
       {
         modifier: '::after'
       }
@@ -66,10 +67,16 @@ describe('<Heading />', () => {
     )
 
     const heading = screen.getByRole('heading', { name: /lorem ipsum/i })
-    expect(heading).toHaveStyle({ 'border-left': '0.7rem solid #F231A5' })
-    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #F231A5', {
-      modifier: '::after'
+    expect(heading).toHaveStyle({
+      'border-left': `0.7rem solid ${theme.colors.primary}`
     })
+    expect(heading).toHaveStyleRule(
+      'border-bottom',
+      `0.5rem solid ${theme.colors.primary}`,
+      {
+        modifier: '::after'
+      }
+    )
   })
   it('should reder a Heading with a seconday line color', () => {
     renderWithTheme(
@@ -79,9 +86,15 @@ describe('<Heading />', () => {
     )
 
     const heading = screen.getByRole('heading', { name: /lorem ipsum/i })
-    expect(heading).toHaveStyle({ 'border-left': '0.7rem solid #3CD3C1' })
-    expect(heading).toHaveStyleRule('border-bottom', '0.5rem solid #3CD3C1', {
-      modifier: '::after'
+    expect(heading).toHaveStyle({
+      'border-left': `0.7rem solid ${theme.colors.secondary}`
     })
+    expect(heading).toHaveStyleRule(
+      'border-bottom',
+      `0.5rem solid ${theme.colors.secondary}`,
+      {
+        modifier: '::after'
+      }
+    )
   })
 })

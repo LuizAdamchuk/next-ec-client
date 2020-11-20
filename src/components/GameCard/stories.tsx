@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react/types-6-0'
 import GameCard, { GameCardProps } from '.'
 
 export default {
-  title: 'GameCard',
+  title: 'Insiders/GameCard',
   component: GameCard,
   argTypes: {
     ribbon: {

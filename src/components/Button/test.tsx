@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
+import theme from 'styles/theme'
 
 import Button from '.'
 
@@ -56,10 +57,10 @@ describe('<Button />', () => {
     )
 
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
-      background: '#FAFAFA'
+      background: theme.colors.white
     })
     expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
-      color: '#F231A5'
+      color: theme.colors.primary
     })
   })
   it('should render Button as a link', () => {

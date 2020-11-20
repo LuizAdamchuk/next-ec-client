@@ -11,7 +11,7 @@ export const Wrapper = styled.article`
   `}
 `
 export const ImageBox = styled.div`
-  ${({ theme }) => css`
+  ${() => css`
     height: 14rem;
     width: 100%;
 

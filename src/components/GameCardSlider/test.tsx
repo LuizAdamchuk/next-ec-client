@@ -1,7 +1,8 @@
 import 'match-media-mock'
 
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import theme from 'styles/theme'
 
 import GameCardSlider from '.'
 
@@ -62,11 +63,11 @@ describe('<GameCardSlider />', () => {
     renderWithTheme(<GameCardSlider color="white" items={items} />)
 
     expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
-      color: '#FAFAFA'
+      color: theme.colors.white
     })
 
     expect(screen.getByLabelText(/next games/i)).toHaveStyle({
-      color: '#FAFAFA'
+      color: theme.colors.white
     })
   })
 })
